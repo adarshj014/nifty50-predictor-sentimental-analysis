@@ -34,3 +34,8 @@ def root():
 @app.get("/health")
 def health():
     return {"status": "healthy"}
+
+
+@app.get("/debug/cors")
+def debug_cors():
+    return {"cors_origins_raw": os.getenv("CORS_ORIGINS"), "parsed": cors_origins}
