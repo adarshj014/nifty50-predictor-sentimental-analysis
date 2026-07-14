@@ -1,0 +1,15 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.10
+python-dotenv==1.0.1
+pydantic==2.9.2
+pandas==2.2.3
+joblib==1.4.2
+xgboost==2.1.1
+scikit-learn==1.5.2
+yfinance==0.2.44
+transformers==4.57.6
+torch==2.6.0
+yfinance==0.2.44
+vaderSentiment==3.3.2
