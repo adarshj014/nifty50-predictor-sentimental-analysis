@@ -87,7 +87,6 @@ export default function ModelPerformance() {
       <div style={{ display: "flex", gap: 14, marginBottom: 32, flexWrap: "wrap" }}>
         <StatCard label="Total News-Days Analyzed" value={stats.total_news_days.toLocaleString()} />
         <StatCard label="Stocks Covered" value={stats.stocks_covered} />
-        <StatCard label="FinBERT Accuracy on Indian News" value={`${stats.finbert_accuracy}%`} accent="var(--accent-amber)" />
       </div>
 
       <div className="mono" style={{ fontSize: 11, color: "var(--text-faint)", marginBottom: 8 }}>
@@ -118,7 +117,7 @@ export default function ModelPerformance() {
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead>
             <tr style={{ background: "var(--surface)" }}>
-              {["Ticker", "Acc 1D", "Acc 5D", "Rows 1D", "Rows 5D"].map((h) => (
+              {["Ticker", "Acc 1D", "Acc 5D"].map((h) => (
                 <th key={h} className="mono" style={{ textAlign: h === "Ticker" ? "left" : "right", padding: "10px 16px", fontSize: 11, color: "var(--text-faint)", borderBottom: "1px solid var(--border)" }}>
                   {h.toUpperCase()}
                 </th>
@@ -131,8 +130,6 @@ export default function ModelPerformance() {
                 <td style={{ padding: "10px 16px", fontWeight: 500 }}>{r.ticker}</td>
                 <td className="mono" style={{ padding: "10px 16px", textAlign: "right" }}>{r.accuracy_1d != null ? `${r.accuracy_1d.toFixed(1)}%` : "—"}</td>
                 <td className="mono" style={{ padding: "10px 16px", textAlign: "right" }}>{r.accuracy_5d != null ? `${r.accuracy_5d.toFixed(1)}%` : "—"}</td>
-                <td className="mono" style={{ padding: "10px 16px", textAlign: "right", color: "var(--text-muted)" }}>{r.rows_1d?.toLocaleString() ?? "—"}</td>
-                <td className="mono" style={{ padding: "10px 16px", textAlign: "right", color: "var(--text-muted)" }}>{r.rows_5d?.toLocaleString() ?? "—"}</td>
               </tr>
             ))}
           </tbody>

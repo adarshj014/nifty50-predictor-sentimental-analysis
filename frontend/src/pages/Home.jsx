@@ -118,14 +118,13 @@ export default function Home() {
               accent={pctChange >= 0 ? "var(--accent-up)" : "var(--accent-down)"}
             />
             <StatCard
-              label="Avg Sentiment (shown period)"
+              label="Avg Sentiment (last 30 days)"
               value={sentLabel}
               sub={`${avgSent >= 0 ? "+" : ""}${avgSent.toFixed(3)}`}
               accent={sentLabel === "Bullish" ? "var(--accent-up)" : sentLabel === "Bearish" ? "var(--accent-down)" : "var(--text-muted)"}
             />
-            <StatCard label="News Coverage" value={`${totalArticles} articles`} />
+            <StatCard label="News Coverage(last 30 days)" value={`${totalArticles} articles`} />
           </div>
-
           <div
             style={{
               background: "var(--surface)",
