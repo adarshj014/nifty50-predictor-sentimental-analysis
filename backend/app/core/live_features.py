@@ -1,10 +1,14 @@
 """Fetches live technical indicators for a ticker via yfinance, ported
 exactly from the original Streamlit 2_Live_Prediction.py fetch_live_features()."""
 import yfinance as yf
+import requests
+
+_session = requests.Session()
+_session.headers.update({"User-Agent": "Mozilla/5.0"})
 
 
 def fetch_live_features(ticker: str):
-    stock = yf.Ticker(ticker)
+    stock = yf.Ticker(ticker, session=_session)
     df = stock.history(period="60d")
 
     if df.empty or len(df) < 20:
